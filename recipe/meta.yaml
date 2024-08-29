@@ -1,31 +1,24 @@
-{% set version = "0.1.9" %}
-{% set url_base = "https://github.com/lab-cosmo/metatensor/releases/download" %}
-
 package:
   name: metatensor
-  version: {{ version }}
-
-source:
-  url: {{ url_base }}/metatensor-core-v{{ version }}/metatensor-core-cxx-{{ version }}.tar.gz
-  sha256: b8644d086f6bdf01ad972cc0267c83f239349d1f087ed89115544ab12a63693d
+  version: 0.2
 
 build:
   number: 0
-
+  noarch: generic
 
 requirements:
-  build:
-    - {{ compiler('cxx') }}
-    - {{ stdlib("c") }}
-    - {{ compiler('rust') }}
-    - cmake
-    - ninja
-    - cargo-bundle-licenses
+  run:
+    - libmetatensor
+    - libmetatensor-torch
 
 test:
   commands:
+    # check if libmetatensor files exists
     - test -f $PREFIX/lib/libmetatensor$SHLIB_EXT  # [unix]
     - if not exist %PREFIX%\\Library\\bin\\metatensor.dll exit 1  # [win]
+    # check if libmetatensor-torch files exists
+    - test -f $PREFIX/lib/libmetatensor_torch$SHLIB_EXT  # [unix]
+    - if not exist %PREFIX%\\Library\\bin\\metatensor_torch.dll exit 1  # [win]
 
 about:
   home: https://github.com/lab-cosmo/metatensor
@@ -34,7 +27,6 @@ about:
   license_family: BSD
   license_file:
     - LICENSE
-    - THIRDPARTY_LICENSES.yaml
   doc_url: https://lab-cosmo.github.io/metatensor/
 
 extra:
