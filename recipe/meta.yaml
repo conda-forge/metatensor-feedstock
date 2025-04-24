@@ -3,31 +3,30 @@ package:
   version: 0.2
 
 build:
-  number: 0
+  number: 1
   noarch: generic
 
 requirements:
   run:
     - libmetatensor
-    - libmetatensor-torch
+    - python-metatensor-core
+    - python-metatensor-operations
+    - python-metatensor-learn
 
 test:
   commands:
     # check if libmetatensor files exists
     - test -f $PREFIX/lib/libmetatensor$SHLIB_EXT  # [unix]
     - if not exist %PREFIX%\\Library\\bin\\metatensor.dll exit 1  # [win]
-    # check if libmetatensor-torch files exists
-    - test -f $PREFIX/lib/libmetatensor_torch$SHLIB_EXT  # [unix]
-    - if not exist %PREFIX%\\Library\\bin\\metatensor_torch.dll exit 1  # [win]
 
 about:
-  home: https://github.com/lab-cosmo/metatensor
+  home: https://github.com/metatensor/metatensor
   summary: 'Self-describing sparse tensor data format for atomistic machine learning and beyond'
   license: BSD-3-Clause
   license_family: BSD
   license_file:
     - LICENSE
-  doc_url: https://lab-cosmo.github.io/metatensor/
+  doc_url: https://docs.metatensor.org/
 
 extra:
   recipe-maintainers:
