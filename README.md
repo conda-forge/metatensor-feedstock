@@ -3,13 +3,13 @@ About metatensor-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/metatensor-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/lab-cosmo/metatensor
+Home: https://github.com/metatensor/metatensor
 
 Package license: BSD-3-Clause
 
 Summary: Self-describing sparse tensor data format for atomistic machine learning and beyond
 
-Documentation: https://lab-cosmo.github.io/metatensor/
+Documentation: https://docs.metatensor.org/
 
 Current build status
 ====================
